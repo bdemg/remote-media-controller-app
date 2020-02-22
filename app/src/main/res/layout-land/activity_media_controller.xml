@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.MediaControllerActivity">
+
+    <Button
+        android:id="@+id/volumeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:drawableTop="@drawable/baseline_volume_up_black_18dp"
+        android:paddingTop="24dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="62dp"
+
+        android:layout_marginTop="16dp"
+        android:drawableTop="@drawable/baseline_volume_off_black_18dp"
+        android:paddingTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volumeDown" />
+
+    <Button
+        android:id="@+id/volumeDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginTop="8dp"
+        android:drawableTop="@drawable/baseline_volume_down_black_18dp"
+        android:paddingTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/volumeUp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/previousTrack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:drawableTop="@drawable/baseline_skip_previous_black_18dp"
+        android:paddingTop="24dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextTrack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableTop="@drawable/baseline_skip_next_black_18dp"
+        android:paddingTop="24dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/volumeUp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/playPause"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/playPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:drawableTop="@drawable/baseline_play_pause_arrow_black_18dp"
+        android:paddingTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/previousTrack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/spacebarPlayPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="Spacebar"
+        app:layout_constraintEnd_toStartOf="@+id/volumeDown"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rewind" />
+
+    <Button
+        android:id="@+id/rewind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:drawableTop="@drawable/baseline_fast_rewind_black_18dp"
+        android:paddingTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/previousTrack" />
+
+    <Button
+        android:id="@+id/forward"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:drawableTop="@drawable/baseline_fast_forward_black_18dp"
+        android:paddingTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/mute"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/rewind"
+        app:layout_constraintTop_toBottomOf="@+id/playPause" />
+
+</android.support.constraint.ConstraintLayout>
