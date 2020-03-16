@@ -20,13 +20,15 @@ class NetworkClient(activity: Activity) : Thread() {
     private val restClient = OkHttpClient()
     private val toastHandler = ToastHandler(callingActivity)
 
-    init {
-        this.restClient.setConnectTimeout(500, TimeUnit.MILLISECONDS)
-    }
 
     override fun run() {
 
         val host = PreferenceManager.getDefaultSharedPreferences(callingActivity).getString("host", "https://localhost:8080")
+        val timeout = PreferenceManager.getDefaultSharedPreferences(callingActivity).getString("timeoutMillis", "500").toLong()
+        this.restClient.setConnectTimeout(
+                timeout,
+                TimeUnit.MILLISECONDS
+        )
         val request = Request.Builder().url(host + route).build()
 
         try {
