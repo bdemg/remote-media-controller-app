@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/controllerBackground"
     tools:context=".controller.MediaControllerActivity">
 
     <Button
@@ -13,6 +14,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:drawableTop="@drawable/baseline_volume_up_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +28,7 @@
 
         android:layout_marginTop="16dp"
         android:drawableTop="@drawable/baseline_volume_off_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/volumeDown" />
@@ -38,6 +41,7 @@
 
         android:layout_marginTop="8dp"
         android:drawableTop="@drawable/baseline_volume_down_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
         app:layout_constraintEnd_toStartOf="@+id/volumeUp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +53,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:drawableTop="@drawable/baseline_skip_previous_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +67,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:drawableTop="@drawable/baseline_skip_next_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
 
         app:layout_constraintEnd_toStartOf="@+id/volumeUp"
@@ -77,6 +83,7 @@
         android:layout_marginTop="8dp"
 
         android:drawableTop="@drawable/baseline_play_pause_arrow_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
         app:layout_constraintStart_toEndOf="@+id/previousTrack"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,6 +98,7 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:text="Spacebar"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintEnd_toStartOf="@+id/volumeDown"
 
         app:layout_constraintHorizontal_bias="0.0"
@@ -104,6 +112,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:drawableTop="@drawable/baseline_fast_rewind_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/previousTrack" />
@@ -116,6 +125,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:drawableTop="@drawable/baseline_fast_forward_black_18dp"
+        android:background="@color/colorPrimaryLight"
         android:paddingTop="24dp"
         app:layout_constraintEnd_toStartOf="@+id/mute"
         app:layout_constraintHorizontal_bias="0.0"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/controllerBackground"
     tools:context=".controller.MediaControllerActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -22,6 +24,7 @@
         android:id="@+id/mute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mute"
 
@@ -49,6 +53,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintEnd_toStartOf="@+id/volumeUp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +69,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintEnd_toStartOf="@+id/volumeUp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/previousTrack"
@@ -80,6 +86,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginTop="8dp"
         android:paddingTop="24dp"
+        android:background="@color/colorPrimaryLight"
         android:drawableTop="@drawable/baseline_play_pause_arrow_black_18dp"
 
         app:layout_constraintEnd_toStartOf="@+id/mute"
@@ -96,6 +103,7 @@
         android:layout_marginTop="16dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
+        android:background="@color/colorPrimaryLight"
         android:text="Spacebar"
         app:layout_constraintEnd_toStartOf="@+id/volumeDown"
         app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +119,7 @@
         android:layout_marginTop="16dp"
         android:paddingTop="24dp"
         android:drawableTop="@drawable/baseline_fast_rewind_black_18dp"
+        android:background="@color/colorPrimaryLight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/previousTrack" />
 
@@ -123,6 +132,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:paddingTop="24dp"
+        android:background="@color/colorPrimaryLight"
         android:drawableTop="@drawable/baseline_fast_forward_black_18dp"
         app:layout_constraintBottom_toTopOf="@+id/playPause"
         app:layout_constraintEnd_toStartOf="@+id/mute"

@@ -11,12 +11,18 @@ import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import controller.media.com.jorge.remote_media_controller.utils.ToastHandler
 import java.net.SocketTimeoutException
+import java.util.concurrent.TimeUnit
 
-class NetworkClient(private val callingActivity: Activity) : Thread() {
+class NetworkClient(activity: Activity) : Thread() {
 
+    private val callingActivity: Activity = activity
     var route: String? = null
     private val restClient = OkHttpClient()
     private val toastHandler = ToastHandler(callingActivity)
+
+    init {
+        this.restClient.setConnectTimeout(500, TimeUnit.MILLISECONDS)
+    }
 
     override fun run() {
 
