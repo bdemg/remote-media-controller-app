@@ -10,6 +10,7 @@ import android.preference.PreferenceManager
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import controller.media.com.jorge.remote_media_controller.utils.ToastHandler
+import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
 
@@ -45,6 +46,11 @@ class NetworkClient(activity: Activity) : Thread() {
 
             val message = Message()
             message.obj = "Unable to connect to the server: Connection timed out."
+            toastHandler.sendMessage(message)
+        } catch (exception:ConnectException){
+
+            val message = Message()
+            message.obj = "Unable to connect to the server: Connection refused."
             toastHandler.sendMessage(message)
         }
     }
