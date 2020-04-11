@@ -1,10 +1,6 @@
 package controller.media.com.jorge.remote_media_controller.network
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.os.Message
 import android.preference.PreferenceManager
 import com.squareup.okhttp.OkHttpClient
@@ -47,10 +43,15 @@ class NetworkClient(activity: Activity) : Thread() {
             val message = Message()
             message.obj = "Unable to connect to the server: Connection timed out."
             toastHandler.sendMessage(message)
-        } catch (exception:ConnectException){
+        } catch (exception: ConnectException) {
 
             val message = Message()
             message.obj = "Unable to connect to the server: Connection refused."
+            toastHandler.sendMessage(message)
+        } catch (exception: Exception){
+
+            val message = Message()
+            message.obj = "Unable to connect to the server: Check the server/network."
             toastHandler.sendMessage(message)
         }
     }
