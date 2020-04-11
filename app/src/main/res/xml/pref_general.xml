@@ -3,7 +3,7 @@
     <!-- NOTE: EditTextPreference accepts EditText attributes. -->
     <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
     <EditTextPreference
-        android:defaultValue="http://192.168.1.165:8080"
+        android:defaultValue="http://192.168.1.114:4648"
         android:inputType="textCapWords"
         android:key="host"
         android:maxLines="1"
