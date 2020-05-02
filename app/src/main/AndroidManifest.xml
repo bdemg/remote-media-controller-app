@@ -21,14 +21,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controller.NetworkSettingsActivity"
+            android:name=".controller.ApplicationSettingsActivity"
             android:label="@string/title_activity_network_settings"
             android:parentActivityName=".controller.MediaControllerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="controller.media.com.jorge.remote_media_controller.controller.MediaControllerActivity" />
         </activity>
-        <activity android:name=".controller.TrackPadActivity"></activity>
+        <activity
+            android:name=".controller.TrackPadActivity"
+            android:label="TrackPad"
+            ></activity>
     </application>
 
 </manifest>

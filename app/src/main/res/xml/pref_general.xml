@@ -20,4 +20,13 @@
         android:maxLines="1"
         android:singleLine="true"/>
 
+    <EditTextPreference
+        android:defaultValue="0.8"
+        android:title="Trackpad sensitivity"
+        android:inputType="number"
+        android:key="trackpadSensitivity"
+        android:selectAllOnFocus="true"
+        android:maxLines="1"
+        android:singleLine="true"/>
+
 </PreferenceScreen>

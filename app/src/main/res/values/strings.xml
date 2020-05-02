@@ -74,4 +74,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="spacebar_pause">Spacebar</string>
+    <string name="r_click">R. Click</string>
+    <string name="l_click">L. Click</string>
 </resources>

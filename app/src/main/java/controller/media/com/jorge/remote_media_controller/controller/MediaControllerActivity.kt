@@ -103,7 +103,7 @@ class MediaControllerActivity : AppCompatActivity() {
     }
 
     private fun openSettings(): Boolean{
-        val intent = Intent(this, NetworkSettingsActivity::class.java)
+        val intent = Intent(this, ApplicationSettingsActivity::class.java)
         startActivity(intent)
         return true
     }

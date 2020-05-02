@@ -3,8 +3,8 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="controller.media.com.jorge.remote_media_controller.controller.NetworkSettingsActivity$GeneralPreferenceFragment"
+        android:fragment="controller.media.com.jorge.remote_media_controller.controller.ApplicationSettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
-        android:title="Network Settings" />
+        android:title="Application Settings" />
 
 </preference-headers>
