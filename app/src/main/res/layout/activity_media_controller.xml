@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/controllerBackground"
-    tools:context=".controller.MediaControllerActivity">
+    tools:context=".controller.MediaControllerActivity"
+    android:id="@+id/mediaControllerLayout">
 
     <Button
         android:id="@+id/volumeUp"
@@ -104,7 +105,7 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:background="@color/colorPrimaryLight"
-        android:text="Spacebar"
+        android:text="@string/spacebar_pause"
         app:layout_constraintEnd_toStartOf="@+id/volumeDown"
         app:layout_constraintHorizontal_bias="0.0"
 

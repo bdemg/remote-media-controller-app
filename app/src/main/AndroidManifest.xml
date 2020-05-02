@@ -28,6 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="controller.media.com.jorge.remote_media_controller.controller.MediaControllerActivity" />
         </activity>
+        <activity android:name=".controller.TrackPadActivity"></activity>
     </application>
 
 </manifest>
