@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageButton
 import controller.media.com.jorge.remote_media_controller.R
 import controller.media.com.jorge.remote_media_controller.network.NetworkClient
 import controller.media.com.jorge.remote_media_controller.utils.TrackPadTouchListener
@@ -29,6 +30,20 @@ class TrackPadActivity : AppCompatActivity() {
         leftClick.setOnClickListener{
 
             this.networkClient.route = "/leftClick"
+            this.networkClient.start()
+        }
+
+        val scrollUp = findViewById<ImageButton>(R.id.scrollUp)
+        scrollUp.setOnClickListener{
+
+            this.networkClient.route = "/scrollUp"
+            this.networkClient.start()
+        }
+
+        val scrollDown = findViewById<ImageButton>(R.id.scrollDown)
+        scrollDown.setOnClickListener{
+
+            this.networkClient.route = "/scrollDown"
             this.networkClient.start()
         }
 
