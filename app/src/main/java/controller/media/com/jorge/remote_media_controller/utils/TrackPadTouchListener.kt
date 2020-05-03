@@ -15,6 +15,7 @@ class TrackPadTouchListener : View.OnTouchListener {
     private var Xpos = 0
     private var Ypos = 0
     private var sensitivity: Double
+    private var isTap = false
 
     constructor(activity: Activity, networkClient: NetworkClient) {
         this.networkClient = networkClient
@@ -29,6 +30,7 @@ class TrackPadTouchListener : View.OnTouchListener {
             MotionEvent.ACTION_DOWN -> {
                 this.Xpos = event.x.toInt()
                 this.Ypos = event.y.toInt()
+                this.isTap=true
             }
 
             MotionEvent.ACTION_MOVE -> {
@@ -41,6 +43,8 @@ class TrackPadTouchListener : View.OnTouchListener {
                 this.Xpos = newXpos
                 this.Ypos = newYpos
 
+                this.isTap=false
+
                 this.networkClient.route = "/moveMouse/${Xdelta.roundToInt()}/${Ydelta.roundToInt()}"
                 this.networkClient.start()
             }
@@ -48,6 +52,11 @@ class TrackPadTouchListener : View.OnTouchListener {
             MotionEvent.ACTION_UP -> {
                 Xpos = 0
                 Ypos = 0
+
+                if(isTap){
+                    this.networkClient.route="/leftClick"
+                    this.networkClient.start()
+                }
             }
         }
         return true

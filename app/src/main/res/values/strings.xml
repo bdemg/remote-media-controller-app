@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Media Remote</string>
-    <string name="title_activity_network_settings">NetworkSettings</string>
+    <string name="title_activity_settings">Application Settings</string>
 
     <!-- Strings related to Settings -->
 
@@ -76,4 +76,5 @@
     <string name="spacebar_pause">Spacebar</string>
     <string name="r_click">R. Click</string>
     <string name="l_click">L. Click</string>
+    <string name="trackpad_swipe_message"><![CDATA[Swipe > for Trackpad]]></string>
 </resources>
