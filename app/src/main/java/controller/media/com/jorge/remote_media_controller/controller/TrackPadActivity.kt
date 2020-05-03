@@ -1,6 +1,7 @@
 package controller.media.com.jorge.remote_media_controller.controller
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -10,14 +11,19 @@ import android.widget.ImageButton
 import controller.media.com.jorge.remote_media_controller.R
 import controller.media.com.jorge.remote_media_controller.network.NetworkClient
 import controller.media.com.jorge.remote_media_controller.utils.TrackPadTouchListener
+import kotlin.math.roundToInt
 
 class TrackPadActivity : AppCompatActivity() {
 
     private val networkClient = NetworkClient(this)
+    private var scrollAmount: Int = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track_pad)
+
+        this.scrollAmount = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString("scrollSteps", "3").toDouble().roundToInt()
 
         val rightClick = findViewById<Button>(R.id.trackpadRightClick)
         rightClick.setOnClickListener{
@@ -36,14 +42,14 @@ class TrackPadActivity : AppCompatActivity() {
         val scrollUp = findViewById<ImageButton>(R.id.scrollUp)
         scrollUp.setOnClickListener{
 
-            this.networkClient.route = "/scrollUp"
+            this.networkClient.route = "/scrollUp/$scrollAmount"
             this.networkClient.start()
         }
 
         val scrollDown = findViewById<ImageButton>(R.id.scrollDown)
         scrollDown.setOnClickListener{
 
-            this.networkClient.route = "/scrollDown"
+            this.networkClient.route = "/scrollDown/$scrollAmount"
             this.networkClient.start()
         }
 

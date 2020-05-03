@@ -29,4 +29,13 @@
         android:maxLines="1"
         android:singleLine="true"/>
 
+    <EditTextPreference
+        android:defaultValue="3"
+        android:title="Scroll sensitivity"
+        android:inputType="number"
+        android:key="scrollSteps"
+        android:selectAllOnFocus="true"
+        android:maxLines="1"
+        android:singleLine="true"/>
+
 </PreferenceScreen>
