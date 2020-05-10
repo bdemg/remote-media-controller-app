@@ -8,15 +8,10 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.preference.ListPreference
-import android.preference.Preference
-import android.preference.PreferenceActivity
-import android.preference.PreferenceFragment
-import android.preference.PreferenceManager
-import android.preference.RingtonePreference
+import android.preference.*
+import android.support.v4.app.NavUtils
 import android.text.TextUtils
 import android.view.MenuItem
-import android.support.v4.app.NavUtils
 import controller.media.com.jorge.remote_media_controller.R
 
 /**
@@ -29,7 +24,7 @@ import controller.media.com.jorge.remote_media_controller.R
  * for design guidelines and the [Settings API Guide](http://developer.android.com/guide/topics/ui/settings.html)
  * for more information on developing a Settings UI.
  */
-class NetworkSettingsActivity : AppCompatPreferenceActivity() {
+class ApplicationSettingsActivity : AppCompatPreferenceActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +96,7 @@ class NetworkSettingsActivity : AppCompatPreferenceActivity() {
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
             val id = item.itemId
             if (id == android.R.id.home) {
-                startActivity(Intent(activity, NetworkSettingsActivity::class.java))
+                startActivity(Intent(activity, ApplicationSettingsActivity::class.java))
                 return true
             }
             return super.onOptionsItemSelected(item)
@@ -129,7 +124,7 @@ class NetworkSettingsActivity : AppCompatPreferenceActivity() {
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
             val id = item.itemId
             if (id == android.R.id.home) {
-                startActivity(Intent(activity, NetworkSettingsActivity::class.java))
+                startActivity(Intent(activity, ApplicationSettingsActivity::class.java))
                 return true
             }
             return super.onOptionsItemSelected(item)
@@ -157,7 +152,7 @@ class NetworkSettingsActivity : AppCompatPreferenceActivity() {
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
             val id = item.itemId
             if (id == android.R.id.home) {
-                startActivity(Intent(activity, NetworkSettingsActivity::class.java))
+                startActivity(Intent(activity, ApplicationSettingsActivity::class.java))
                 return true
             }
             return super.onOptionsItemSelected(item)

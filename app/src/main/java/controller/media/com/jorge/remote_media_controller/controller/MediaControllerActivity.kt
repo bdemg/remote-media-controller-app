@@ -1,21 +1,23 @@
 package controller.media.com.jorge.remote_media_controller.controller
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
+import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import controller.media.com.jorge.remote_media_controller.R
 import controller.media.com.jorge.remote_media_controller.network.NetworkClient
-import android.R.menu
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import controller.media.com.jorge.remote_media_controller.utils.MediaScreenSwipeListener
 
 
 class MediaControllerActivity : AppCompatActivity() {
 
     private val networkClient = NetworkClient(this)
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media_controller)
@@ -82,6 +84,9 @@ class MediaControllerActivity : AppCompatActivity() {
             this.networkClient.route = "/mediaBackward"
             this.networkClient.start()
         }
+
+        val layout = findViewById<ConstraintLayout>(R.id.mediaControllerLayout)
+        layout.setOnTouchListener(MediaScreenSwipeListener(this))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -98,7 +103,7 @@ class MediaControllerActivity : AppCompatActivity() {
     }
 
     private fun openSettings(): Boolean{
-        val intent = Intent(this, NetworkSettingsActivity::class.java)
+        val intent = Intent(this, ApplicationSettingsActivity::class.java)
         startActivity(intent)
         return true
     }
