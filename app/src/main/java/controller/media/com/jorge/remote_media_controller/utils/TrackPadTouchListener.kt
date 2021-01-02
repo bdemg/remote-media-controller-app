@@ -10,21 +10,21 @@ import kotlin.math.roundToInt
 
 class TrackPadTouchListener : View.OnTouchListener {
 
-    private val networkClient: NetworkClient
     private val activity: Activity
     private var Xpos = 0
     private var Ypos = 0
     private var sensitivity: Double
+    private val tapThreshold = 3
     private var isTap = false
 
-    constructor(activity: Activity, networkClient: NetworkClient) {
-        this.networkClient = networkClient
+    constructor(activity: Activity) {
         this.activity = activity
         sensitivity = PreferenceManager.getDefaultSharedPreferences(activity).getString("trackpadSensitivity", "0.8").toDouble()
     }
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         val eventAction = event.action
+        val networkClient = NetworkClient(this.activity)
 
         when (eventAction) {
             MotionEvent.ACTION_DOWN -> {
@@ -37,16 +37,21 @@ class TrackPadTouchListener : View.OnTouchListener {
                 val newXpos = event.x.toInt()
                 val newYpos = event.y.toInt()
 
-                val Xdelta = (newXpos - this.Xpos)*this.sensitivity
-                val Ydelta = (newYpos - this.Ypos)*this.sensitivity
+                var Xdelta = (newXpos - this.Xpos)
+                var Ydelta = (newYpos - this.Ypos)
 
-                this.Xpos = newXpos
-                this.Ypos = newYpos
+                if(Math.abs(Xdelta)>this.tapThreshold || Math.abs(Ydelta)>this.tapThreshold){
+                    this.Xpos = newXpos
+                    this.Ypos = newYpos
 
-                this.isTap=false
+                    this.isTap=false
 
-                this.networkClient.route = "/moveMouse/${Xdelta.roundToInt()}/${Ydelta.roundToInt()}"
-                this.networkClient.start()
+                    val Xmovement = Xdelta*this.sensitivity
+                    val Ymovement = Ydelta*this.sensitivity
+                    networkClient.route = "/moveMouse/${Xmovement.roundToInt()}/${Ymovement.roundToInt()}"
+                    networkClient.start()
+                }
+
             }
 
             MotionEvent.ACTION_UP -> {
@@ -54,8 +59,8 @@ class TrackPadTouchListener : View.OnTouchListener {
                 Ypos = 0
 
                 if(isTap){
-                    this.networkClient.route="/leftClick"
-                    this.networkClient.start()
+                    networkClient.route="/leftClick"
+                    networkClient.start()
                 }
             }
         }
