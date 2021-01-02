@@ -15,8 +15,6 @@ import controller.media.com.jorge.remote_media_controller.utils.MediaScreenSwipe
 
 class MediaControllerActivity : AppCompatActivity() {
 
-    private val networkClient = NetworkClient(this)
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,64 +23,55 @@ class MediaControllerActivity : AppCompatActivity() {
         val volumeUp = findViewById<Button>(R.id.volumeUp)
         volumeUp.setOnClickListener {
 
-            this.networkClient.route = "/volumeUp"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/volumeUp")
         }
 
         val volumeDown = findViewById<Button>(R.id.volumeDown)
         volumeDown.setOnClickListener {
 
-            this.networkClient.route = "/volumeDown"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/volumeDown")
         }
 
         val mute = findViewById<Button>(R.id.mute)
         mute.setOnClickListener {
 
-            this.networkClient.route = "/mute"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/mute")
         }
 
         val nextTrack = findViewById<Button>(R.id.nextTrack)
         nextTrack.setOnClickListener {
 
-            this.networkClient.route = "/nextTrack"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/nextTrack")
         }
 
         val previousTrack = findViewById<Button>(R.id.previousTrack)
         previousTrack.setOnClickListener {
 
-            this.networkClient.route = "/previousTrack"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/previousTrack")
         }
 
         val playPause = findViewById<Button>(R.id.playPause)
         playPause.setOnClickListener {
 
-            this.networkClient.route = "/playPause/native"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/playPause/native")
         }
 
         val spacebarPlayPause = findViewById<Button>(R.id.spacebarPlayPause)
         spacebarPlayPause.setOnClickListener{
 
-            this.networkClient.route = "/playPause/spacebar"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/playPause/spacebar")
         }
 
         val fastForward = findViewById<Button>(R.id.forward)
         fastForward.setOnClickListener{
 
-            this.networkClient.route = "/mediaForward"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/mediaForward")
         }
 
         val fastRewind = findViewById<Button>(R.id.rewind)
         fastRewind.setOnClickListener{
 
-            this.networkClient.route = "/mediaBackward"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/mediaBackward")
         }
 
         val layout = findViewById<ConstraintLayout>(R.id.mediaControllerLayout)
@@ -106,5 +95,11 @@ class MediaControllerActivity : AppCompatActivity() {
         val intent = Intent(this, ApplicationSettingsActivity::class.java)
         startActivity(intent)
         return true
+    }
+
+    private fun sendMediaControlMessage(route: String){
+        val networkClient = NetworkClient(this)
+        networkClient.route = route
+        networkClient.start()
     }
 }

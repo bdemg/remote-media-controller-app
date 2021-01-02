@@ -14,8 +14,6 @@ import controller.media.com.jorge.remote_media_controller.utils.TrackPadTouchLis
 import kotlin.math.roundToInt
 
 class TrackPadActivity : AppCompatActivity() {
-
-    private val networkClient = NetworkClient(this)
     private var scrollAmount: Int = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,33 +26,29 @@ class TrackPadActivity : AppCompatActivity() {
         val rightClick = findViewById<Button>(R.id.trackpadRightClick)
         rightClick.setOnClickListener{
 
-            this.networkClient.route = "/rightClick"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/rightClick")
         }
 
         val leftClick = findViewById<Button>(R.id.trackpadLeftClick)
         leftClick.setOnClickListener{
 
-            this.networkClient.route = "/leftClick"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/leftClick")
         }
 
         val scrollUp = findViewById<ImageButton>(R.id.scrollUp)
         scrollUp.setOnClickListener{
 
-            this.networkClient.route = "/scrollUp/$scrollAmount"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/scrollUp/$scrollAmount")
         }
 
         val scrollDown = findViewById<ImageButton>(R.id.scrollDown)
         scrollDown.setOnClickListener{
 
-            this.networkClient.route = "/scrollDown/$scrollAmount"
-            this.networkClient.start()
+            this.sendMediaControlMessage("/scrollDown/$scrollAmount")
         }
 
         val trackpadLayout = findViewById<ConstraintLayout>(R.id.trackpadLayout)
-        trackpadLayout.setOnTouchListener(TrackPadTouchListener(this, networkClient))
+        trackpadLayout.setOnTouchListener(TrackPadTouchListener(this))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -71,5 +65,11 @@ class TrackPadActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun sendMediaControlMessage(route: String){
+        val networkClient = NetworkClient(this)
+        networkClient.route = route
+        networkClient.start()
     }
 }
